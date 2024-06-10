@@ -1,163 +1,155 @@
-Grafikkarte
-Synergie
-Rating
-Wertschöpfend
-Benefits
-Ergebnisorientiert
-Nachhaltig
-Visionen
-Zielführend
-Global Player
-Szenario
-Diversity
-Corporate Identitiy
-Fokussieren
-Impact
-Target
+Agile
+Algorithm
+API
+Automation
+Bandwidth
 Benchmark
-Gadget
-Value
-Smart
-Web 2.0 oder End-to-End
-Engagement
-Entgrenzung
-Entwicklungsstufe
-Erlebniswelt
-Eskalation
-Fachkräftemangel
-Feedbackkultur
-Fluktuation
-Führungskraft
-Funktionsübergreifend
-Geschäftseinheit
-Gestaltungsfreiraum
-Gewinnwarnung
-Glaubwürdigkeit
-Globalisierung
-Handlungsempfehlung
-Hochverfügbarkeit
-Ideenschmiede
-Implementierung
-Industrie 4.0
-Innovationsfähigkeit
-Integrität
-Interaktivität
-Interdependenz
-Interdisziplinär
-Interface
-Investitionsfreudigkeit
-IoT (Internet of Things)
-Jahresziel
-Kapazitätsauslastung
-Kernkompetenz
-Kundenakquise
-Kundenzentrierung
-Leistungsträger
-Lösungsanbieter
-Marktdurchdringung
-Mehrwert
-Meilenstein
-Mitarbeiterbindung
-Mobilitätslösung
-Nachhaltigkeit
-Netzwerkpflege
-Neukundengewinnung
-Optimierungspotenzial
-Pauschalisierung
-Performance
-Pioniergeist
-Prozessoptimierung
-Qualitätssicherung
-Quantensprung
-Querdenker
-Ressourcenallokation
-Ressourceneffizienz
-Rückkopplung
-Sättigungsgrad
-Scalability
-Schnittstellenkompetenz
-Serviceorientierung
-Stakeholder-Management
-Standardisierung
-Strategieumsetzung
-Synergieeffekt
-Systemrelevanz
-Teamfähigkeit
-Technologieeinsatz
-Thought Leader
-Tiefenanalyse
-Total Quality Management
-Transparenz
-Umsatzpotenzial
-Unternehmenskultur
-Usability
-User Experience
-Vertriebskanal
-Visionär
-Vordenker
-Wachstumsmarkt
-Wertschöpfungskette
-Win-Win-Situation
-Workflow
-Zukunftsfähigkeit
-Zweckoptimismus
-Zwischenmenschlich
-Absurdistan
-Bürokratiewahn
-Chefetage
-Dampfplauderer
-Denkarbeit
-Effekthascherei
-Eierlegendewollmilchsau
-Erbsenzähler
-Floskelwolke
-Gedankengut
-Herumdruckser
-Ideenklau
-Innovationsbremsen
-Kompetenzgerangel
-Konferenzmarathon
-Kreativpause
-Luftschlossarchitekt
-Macher
-Mogelpackung
-Nasenfaktor
-Nostalgietrip
-Papierkrieg
-Quasselstrippe
-Rädchen im System
-Schönfärber
-Stuhlkreis
-Taktiererei
-Tiefstapler
-Um-die-Ecke-Denker
-Vorzeigeprojekt
-Weichspüler
-Wortakrobat
-Qualität
-Big Picture
-Revolution
-Pro-aktiv
-Game-changing
-Blog
-Community
-Social Media
-SOA
-Skalierbar
-Return on Invest (ROI)
-Wissenstransfer
-Best Practice
-Positionierung/Positionieren
-Committen
-Geforwarded
-Transparent
-Open Innovation
-Out-of-the-box
-Dissemination
+Big Data
 Blockchain
-Skills
-Gap
-Follower
-Win-Win
-Kernkompetenz
-kryptowährung
+Cloud
+Containerization
+Continuous Integration
+Cybersecurity
+Data Lake
+Data Mining
+Data Science
+Deep Learning
+DevOps
+Digital Transformation
+Disruption
+Distributed Ledger
+Ecosystem
+Encryption
+End-to-End
+Full Stack
+GDPR
+High Availability
+Hyperconvergence
+IoT (Internet of Things)
+Kubernetes
+Machine Learning
+Microservices
+Migration
+Monetization
+Multi-Cloud
+MVP (Minimum Viable Product)
+Neural Network
+On-Premise
+Open Source
+Orchestration
+Paradigm Shift
+Platform
+Predictive Analytics
+Quantum Computing
+Refactoring
+ROI (Return on Investment)
+SaaS (Software as a Service)
+Scalability
+Scrum
+Serverless
+Single Pane of Glass
+Smart Contracts
+Software-Defined
+Solution
+Synergy
+Tech Stack
+Transformation
+UI/UX
+Virtualization
+Workflow
+5G
+Agile Methodology
+API Gateway
+Automated Testing
+Availability Zone
+Big Data Analytics
+Blockchain Technology
+Business Intelligence
+Cloud Computing
+Cloud Native
+Continuous Deployment
+Continuous Delivery
+Cyber Attack
+Data Analytics
+Data Governance
+Data Integrity
+Data Visualization
+Database Sharding
+Deep Neural Network
+Digital Economy
+Digital Twin
+Distributed Systems
+Edge Computing
+Enterprise Architecture
+Fault Tolerance
+Frontend Development
+High Performance
+Hybrid Cloud
+Incident Response
+Infrastructure as Code
+Innovation
+Integration
+IT Infrastructure
+Kubernetes Cluster
+Legacy Systems
+Load Balancing
+Low Latency
+Managed Services
+Microservice Architecture
+Network Security
+NoSQL
+PaaS (Platform as a Service)
+Private Cloud
+Public Cloud
+Real-time Data
+Redundancy
+Resilience
+Responsive Design
+REST API
+Risk Management
+Scalability Testing
+Security Compliance
+Serverless Architecture
+Software Development
+Software Lifecycle
+Edge AI
+Elasticity
+Endpoint Security
+Fintech
+Infrastructure Modernization
+Intelligent Automation
+IoT Devices
+IT Automation
+Machine Learning Model
+Microservice Deployment
+Multi-Tenancy
+Network Automation
+Network Infrastructure
+Predictive Maintenance
+Quantum Encryption
+Real-time Analytics
+Scalability Solutions
+Security Architecture
+Service Mesh
+Smart Analytics
+Software Ecosystem
+Solution Design
+SRE (Site Reliability Engineering)
+Threat Detection
+User Experience Design
+Virtual Machine
+Web API
+Workflow Automation
+AI-driven Insights
+Cloud Management
+Cyber Defense
+Data-Driven Decision
+Data Lake Management
+DevOps Pipeline
+System Reliability
+Technology Integration
+Unified Communications
+User-Centric Design
+Virtual Network
+Web-scale
+Easter Egg
