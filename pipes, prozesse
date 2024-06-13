@@ -1,0 +1,7 @@
+import os
+
+pid=os.fork()
+if(pid==0):
+  print("Ich bin Kind")
+if(pid>0):
+  print("Ich bin Vater")
