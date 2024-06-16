@@ -1,17 +1,16 @@
-from random import choice  #importing only 'choice' function from 'random' module
+from random import choice  #importiert nur das choice aus dem Modul random.
 
-buzzwords_list = [] #creates an empty list where all the buzzwords will be stored
+buzzwords_list = [] #erstellt eine leere Liste, wo die Buzzwörter gespeichert werden.
 
-def initialize_file(): #this function will fill the list with buzzwords from the file
-    with open("buzzwords.txt") as file: #opens the file
-        reader = file.readlines() #reads the file
-        for i in reader: #for loop that goes through each line in the file
-            i = i.strip() #removes the \n
-            buzzwords_list.append(i) #adds the line to the list
+def initialize_file(): #diese Funktion füllt die Liste mit dem Inhalt aus buzzwords.txt.
+    with open("buzzwords.txt") as file: #öffnet die Datei.
+        reader = file.readlines() #liest die Datei.
+        for i in reader: #for Schleife, die jedes Element der Liste durchläuft.
+            i = i.strip() #entfernt die Zeilenumbrüche.
+            buzzwords_list.append(i) #fügt die Buzzwörter aus der Liste hinzu.
 
-initialize_file() #starts the function
+initialize_file() #ruft die Funktion auf.
 
-random_word = choice(list) #picks a random word from the list above
 
 
 
@@ -33,19 +32,52 @@ random_word = choice(list) #picks a random word from the list above
 
 playernamelist = [] 
 matrixlist = [] #Liste der Bingokarten
-playercount = int(input("Geben Sie die Spieleranzahl ein: "))
+while True:
+    playercount = input("Geben Sie die Spieleranzahl ein: ")
+    try:
+        playercount = int(playercount)
+        break
+    except ValueError:
+        try:
+            float(playercount)
+            print("Fehler: Die eingegebene Zahl darf keine Kommazahl sein.")
+        except ValueError:
+            print("Fehler: Die Eingabe muss eine Zahl sein.")
+
+
 playername = input("geben Sie den Namen des Spielers ein: ")
 playernamelist.append(playername)
-xsize = int(input("wie viele spalten sollen die bingokarten haben?"))
-ysize = int(input("wie viele zeilen sollen die bingokarten haben?"))
+
+while True:
+    xsize = input("wie viele spalten sollen die bingokarten haben?")
+    try:
+        xsize = int(xsize)
+        break
+    except ValueError:
+        try:
+            float(xsize)
+            print("Fehler: Die eingegebene Zahl darf keine Kommazahl sein.")
+        except ValueError:
+            print("Fehler: Die Eingabe muss eine Zahl sein.")
+
+while True:            
+    ysize = input("wie viele Zeilen sollen die Bingokarten haben?")
+    try:
+        ysize = int(ysize)
+        break
+    except ValueError:
+        try:
+            float(ysize)
+            print("Fehler: Die eingegebene Zahl darf keine Kommazahl sein.")
+        except ValueError:
+            print("Fehler: Die Eingabe muss eine Zahl sein.")
+
 matrix = []
 a = xsize * ysize #a ist die anzahl der felder
+
 for j in range(0, a):
-   random_word = choice(buzzwords_list)
-   matrix.append(random_word)
-   buzzwords_list.remove(random_word)
+    random_word = choice(buzzwords_list)
+    matrix.append(random_word)
+    buzzwords_list.remove(random_word)
 matrixlist.append(matrix)   
-
-
-
 
