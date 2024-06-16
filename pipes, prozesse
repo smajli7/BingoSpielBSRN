@@ -21,7 +21,7 @@ def main():
             pid = os.fork()  #Generierung der Kinder Prozesse
             if pid == 0:
                 time.sleep(1)
-                Spiel(pipe_paths[i], pipe_paths) #Ausführen der Kinder Prozesse
+                Spiel(pipe_paths[i], pipe_paths) #Ausführen der Methoden im Kinder Prozesse
                 sys.exit() #Kinder Prozess beenden ihre Prozesse
 
         if pid > 0:
