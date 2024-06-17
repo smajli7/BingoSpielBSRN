@@ -4,7 +4,7 @@ buzzwords_list = [] #erstellt eine leere Liste, wo die Buzzwörter gespeichert w
 
 def initialize_file(): #diese Funktion füllt die Liste mit dem Inhalt aus buzzwords.txt.
     with open("buzzwords.txt") as file: #öffnet die Datei.
-        reader = file.readlines() #liest die Datei.
+        reader = file.readlines() #liest die Datei ein.
         for i in reader: #for Schleife, die jedes Element der Liste durchläuft.
             i = i.strip() #entfernt die Zeilenumbrüche.
             buzzwords_list.append(i) #fügt die Buzzwörter aus der Liste hinzu.
@@ -31,8 +31,8 @@ initialize_file() #ruft die Funktion auf.
 
 
 playernamelist = [] 
-matrixlist = [] #Liste der Bingokarten
-while True:
+matrixlist = [] #Liste der Bingokarten.
+while True: 
     playercount = input("Geben Sie die Spieleranzahl ein: ")
     try:
         playercount = int(playercount)
@@ -44,15 +44,15 @@ while True:
         except ValueError:
             print("Fehler: Die Eingabe muss eine Zahl sein.")
 
-
-playername = input("geben Sie den Namen des Spielers ein: ")
-playernamelist.append(playername)
+for j in range(playercount):
+    playername = input("geben Sie den Namen des Spielers ein: ")
+    playernamelist.append(playername)
 
 while True:
     xsize = input("wie viele spalten sollen die bingokarten haben?")
     try:
-        xsize = int(xsize)
-        break
+        xsize = int(xsize) #bestimmt die Spaltenanzahl.
+        break 
     except ValueError:
         try:
             float(xsize)
@@ -63,7 +63,7 @@ while True:
 while True:            
     ysize = input("wie viele Zeilen sollen die Bingokarten haben?")
     try:
-        ysize = int(ysize)
+        ysize = int(ysize) #bestimmt die Zeilenanzahl.
         break
     except ValueError:
         try:
@@ -72,12 +72,34 @@ while True:
         except ValueError:
             print("Fehler: Die Eingabe muss eine Zahl sein.")
 
+
 matrix = []
+
+
 a = xsize * ysize #a ist die anzahl der felder
 
-for j in range(0, a):
-    random_word = choice(buzzwords_list)
-    matrix.append(random_word)
-    buzzwords_list.remove(random_word)
-matrixlist.append(matrix)   
 
+for k in playernamelist:
+    
+        
+        
+      
+    for i in range(0, ysize):
+        b = []
+        for j in range(0, xsize):
+            random_word = choice(buzzwords_list)
+            b.append(random_word)
+            buzzwords_list.remove(random_word)
+        matrix.append(b)
+            
+        
+    
+       
+
+
+
+        
+
+    matrixlist.append(matrix)
+    matrix = [] #leere die Liste, damit die nächste Spieler eine neue Liste erstellen kann
+    initialize_file() #man setzt buzzwords_list wieder auf den ursprünglichen Inhalt zurück.
