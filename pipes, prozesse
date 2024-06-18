@@ -76,3 +76,6 @@ def main():
         for path in pipe_paths:
             if os.path.exists(path):
                 os.unlink(path) #Löschen der Pipes, falls etwas da zwischen passiert
+
+if __name__ == "__main__":
+    main()
