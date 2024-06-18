@@ -1,3 +1,4 @@
+import math
 from random import choice  #importiert nur das choice aus dem Modul random.
 
 buzzwords_list = [] #erstellt eine leere Liste, wo die Buzzwörter gespeichert werden.
@@ -74,32 +75,23 @@ while True:
 
 
 matrix = []
+counter = 0
+sumofsquares = xsize * ysize
+z = int(math.ceil(xsize * ysize/2))
 
-
-a = xsize * ysize #a ist die anzahl der felder
-
-
-for k in playernamelist:
-    
-        
-        
-      
-    for i in range(0, ysize):
+for k in playernamelist:             
+    for l in range(0, ysize): #zeilen
         b = []
-        for j in range(0, xsize):
+        for j in range(0, xsize): #spalten
+            counter += 1
+            if sumofsquares % 2 != 0:
+                if z == counter:
+                    b.append(0)
             random_word = choice(buzzwords_list)
             b.append(random_word)
             buzzwords_list.remove(random_word)
         matrix.append(b)
-            
-        
-    
-       
-
-
-
-        
-
-    matrixlist.append(matrix)
+    matrixlist.append(matrix) #fügt die bingokartenmatrix einer person in die bingokartenliste ein
     matrix = [] #leere die Liste, damit die nächste Spieler eine neue Liste erstellen kann
     initialize_file() #man setzt buzzwords_list wieder auf den ursprünglichen Inhalt zurück.
+
