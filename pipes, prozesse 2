@@ -39,7 +39,7 @@ def lessen2(pi):
         print("reading")
         daten=os.read(fifo,128)
         if daten:
-            print(daten.decode().strip())
+            print("spiel bended")
             os.unlink(pi)
             time.sleep(4)
             sys.exit()
@@ -58,6 +58,7 @@ def schrieben(pi,paths):
         os.write(fifo,s)
         os.close(fifo)
         print("raus")
+    os.unlink(pi)
     sys.exit()    
         
 
