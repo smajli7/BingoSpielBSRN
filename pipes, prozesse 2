@@ -1,0 +1,89 @@
+import os
+import sys
+import time
+
+
+def spiel(pi,o,paths):
+    while True:
+        lessen(pi)
+        if(o==1):
+         schrieben(pi,paths)
+        o-=1
+        print(o)
+        time.sleep(1)
+    
+
+         
+def lessen(pi):
+    try:
+     fifo=os.open(pi,os.O_RDONLY | os.O_NONBLOCK)
+     try:
+        time.sleep(2)
+        print("reading")
+        daten=os.read(fifo,128)
+        if daten:
+            print(daten.decode().strip())
+            os.unlink(pi)
+            time.sleep(4)
+            sys.exit()
+     finally:
+        os.close(fifo)
+    except IOError as e:
+        print(e)
+        
+def lessen2(pi):
+    try:
+     fifo=os.open(pi,os.O_RDONLY | os.O_NONBLOCK)
+     try:
+        time.sleep(2)
+        print("reading")
+        daten=os.read(fifo,128)
+        if daten:
+            print(daten.decode().strip())
+            os.unlink(pi)
+            time.sleep(4)
+            sys.exit()
+     finally:
+        os.close(fifo)
+    except IOError as e:
+        print(e)
+        
+def schrieben(pi,paths):
+    for i in range(len(paths)):
+        if(pi==paths[i]):
+            continue
+        print(paths[i])
+        fifo=os.open(paths[i],os.O_WRONLY)
+        s='GEWONEN'.encode()
+        os.write(fifo,s)
+        os.close(fifo)
+        print("raus")
+    sys.exit()    
+        
+
+          
+
+def namedpipe(piname):
+    if not os.path.exists(piname):
+        os.mkfifo(piname)
+
+def main():
+    spileranzahl=int(input("spileranzal"))
+    pipes="spiel9"
+    pp=[f"{pipes}{i}"for i in range(spileranzahl)]
+    pid=os.getpid()
+    for i in range(spileranzahl):
+        namedpipe(pp[i])
+    for i in range(1,spileranzahl):
+        pid=os.fork()
+        if(pid==0):
+            time.sleep(1)
+            spiel(pp[i],3+i,pp)
+    if(pid>0):
+        while True:
+            lessen2(pp[0])
+            time.sleep(3)
+        
+    
+
+main()
