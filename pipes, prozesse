@@ -1,6 +1,46 @@
 import os
 import sys
 import time
+def spiel(pi,o,paths):
+    while True:
+        lessen(pi)
+        if(o==1):
+         schrieben(pi,paths)
+        o-=1
+        print(o)
+        time.sleep(1)
+
+         
+def lessen(pi):
+    try:
+     fifo=os.open(pi,os.O_RDONLY | os.O_NONBLOCK)
+     try:
+        time.sleep(2)
+        print("reading")
+        daten=os.read(fifo,128)
+        if daten:
+            print(daten.decode().strip())
+            os.unlink(pi)
+            time.sleep(4)
+            sys.exit()
+     finally:
+        os.close(fifo)
+    except IOError as e:
+        print(e)
+        
+
+def schrieben(pi,paths):
+    for i in range(len(paths)):
+        if(pi==paths[i]):
+            continue
+        print(paths[i])
+        fifo=os.open(paths[i],os.O_WRONLY)
+        s='GEWONEN'.encode()
+        os.write(fifo,s)
+        os.close(fifo)
+        print("raus")
+        sys.exit()
+        
 
 
 def create_named_pipe(pipe_name):  #methode zu Generierung named Pipes
@@ -21,7 +61,7 @@ def main():
             pid = os.fork()  #Generierung der Kinder Prozesse
             if pid == 0:
                 time.sleep(1)
-                Spiel(pipe_paths[i], pipe_paths) #Ausführen der Methoden im Kinder Prozesse
+                Spiel(pipe_paths[i],5+i, pipe_paths) #Ausführen der Methoden im Kinder Prozesse
                 sys.exit() #Kinder Prozess beenden ihre Prozesse
 
         if pid > 0:
