@@ -1,3 +1,5 @@
+import TermTk as ttk
+
 import math
 from random import choice  #importiert nur das choice aus dem Modul random.
 
@@ -11,16 +13,6 @@ def initialize_file(): #diese Funktion füllt die Liste mit dem Inhalt aus buzzw
             buzzwords_list.append(i) #fügt die Buzzwörter aus der Liste hinzu.
 
 initialize_file() #ruft die Funktion auf.
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -46,13 +38,13 @@ while True:
             print("Fehler: Die Eingabe muss eine Zahl sein.")
 
 for j in range(playercount):
-    playername = input("geben Sie den Namen des Spielers ein: ")
+    playername = input("Geben Sie den Namen des Spielers ein: ")
     playernamelist.append(playername)
 
 while True:
-    xsize = input("wie viele spalten sollen die bingokarten haben?")
+    xsize = input("Wie viele spalten sollen die Bingokarten haben? ")
     try:
-        xsize = int(xsize) #bestimmt die Spaltenanzahl.
+        xsize = int(xsize) #bestimmt die Spaltenanzahl
         break 
     except ValueError:
         try:
@@ -62,7 +54,7 @@ while True:
             print("Fehler: Die Eingabe muss eine Zahl sein.")
 
 while True:            
-    ysize = input("wie viele Zeilen sollen die Bingokarten haben?")
+    ysize = input("Wie viele Zeilen sollen die Bingokarten haben? ")
     try:
         ysize = int(ysize) #bestimmt die Zeilenanzahl.
         break
@@ -94,4 +86,3 @@ for k in playernamelist:
     matrixlist.append(matrix) #fügt die bingokartenmatrix einer person in die bingokartenliste ein
     matrix = [] #leere die Liste, damit die nächste Spieler eine neue Liste erstellen kann
     initialize_file() #man setzt buzzwords_list wieder auf den ursprünglichen Inhalt zurück.
-
