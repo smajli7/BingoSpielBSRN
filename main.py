@@ -63,21 +63,20 @@ def get_dimensiony(): # Funktion, die die Zeilenanzahl abfragt.
 
 def generate_bingo_cards(playernamelist, xsize, ysize): # Funktion, die die Bingokarten generiert.
     matrixlist = []  # Liste der Bingokarten.
-    sumofsquares = xsize * ysize # Multiplikation der Spalten- und Zeilenanzahl.
-    z = int(math.ceil(xsize * ysize / 2))
+    middle_x = xsize // 2
+    middle_y = ysize // 2
 
     for k in playernamelist:    # for Schleife, die die Bingokarten für jeden Spieler generiert.
         matrix = []
-        counter = 0
-        for l in range(0, ysize):  # zeilen
+        for l in range(ysize):  # zeilen
             b = []
-            for j in range(0, xsize):  # spalten
-                counter += 1
-                if sumofsquares % 2 != 0 and z == counter:
-                    b.append(0)
-                random_word = choice(buzzwords_list)
-                b.append(random_word)
-                buzzwords_list.remove(random_word)
+            for j in range(xsize):  # spalten
+                if xsize % 2 != 0 and ysize % 2 != 0 and l == middle_y and j == middle_x:
+                    b.append(0)  # Joker in der Mitte, nur wenn xsize und ysize ungerade sind
+                else:
+                    random_word = choice(buzzwords_list)
+                    b.append(random_word)
+                    buzzwords_list.remove(random_word)
             matrix.append(b)
         matrixlist.append(matrix)  # fügt die bingokartenmatrix einer person in die bingokartenliste ein
         initialize_file()  # man setzt buzzwords_list wieder auf den ursprünglichen Inhalt zurück.
