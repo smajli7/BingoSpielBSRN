@@ -5,8 +5,11 @@ from rich.console import Console
 from rich.table import Table
 from rich.box import SQUARE
 from rich.box import HEAVY
+from rich.box import HEAVY_EDGE
 from prompt_toolkit import PromptSession
 from prompt_toolkit.shortcuts import yes_no_dialog
+from prompt_toolkit import PromptSession
+from prompt_toolkit.shortcuts import yes_no_dialog, button_dialog
 
 buzzwords_list = []  # erstellt eine leere Liste, wo die Buzzwörter gespeichert werden.
 console = Console()
@@ -54,7 +57,6 @@ def get_player_names(playercount):  # Funktion, die die Spielernamen abfragt.
         table = Table(show_header=True, header_style="bold magenta")
         table.add_column("Spieler Nummer", justify="center")
         table.add_column("Spieler Name", justify="center")
-        console.clear()
         for i, name in enumerate(playernamelist, start=1):
             table.add_row(str(i), name)
 
@@ -114,21 +116,42 @@ def generate_bingo_cards(playernamelist, xsize, ysize):  # Funktion, die die Bin
     return matrixlist
 
 
+def display_bingo_cards(playernamelist, matrixlist, marked_words):
+    print("\033c", end="", flush=True)  # clears the console
 
-def display_bingo_cards(playernamelist, matrixlist):
+    console.print("Die Bingokarten wurden generiert. Viel Spaß beim Spielen!", style="bold green")
     for i, matrix in enumerate(matrixlist):  # i ist der Index, matrix ist die Bingokarte
-        console.print(f"\nBingokarte für [bold]{playernamelist[i]}[/bold]:")  # Ausgabe des Spielernamens
 
-        table = Table(show_header=False, box=HEAVY, header_style="bold blue")
-
+        table = Table(show_header=False, box=HEAVY_EDGE, border_style="bold blue", title=f"Spieler: {playernamelist[i]}")
         # Adding columns for each column in the bingo card
         for _ in range(len(matrix[0])):
             table.add_column()
 
         for row in matrix:  # row ist eine Zeile der Bingokarte
-            table.add_row(*[str(cell) for cell in row])
+            table.add_row(*[f"[red]{cell}[/red]" if cell in marked_words else str(cell) for cell in row])   # Ausgabe der Bingokarte
 
         console.print(table)
+
+def mark_word(playernamelist, matrixlist):
+    marked_words = set()
+    while True:
+        display_bingo_cards(playernamelist, matrixlist, marked_words)
+        word_to_mark = session.prompt("Geben Sie das Wort ein, das Sie markieren oder unmarkieren möchten (oder 'exit' zum Beenden): ")
+        if word_to_mark.lower() == 'exit':
+            break
+        found = False
+        for matrix in matrixlist:
+            for row in matrix:
+                if word_to_mark in row:
+                    if word_to_mark in marked_words:
+                        marked_words.remove(word_to_mark)
+                    else:
+                        marked_words.add(word_to_mark)
+                    found = True
+                    break
+            if found:
+                break
+    console.print("Das Spiel ist beendet. Danke fürs Spielen!", style="bold green")
 
 
 def start_game():  # Funktion, die das Spiel startet.
@@ -138,7 +161,7 @@ def start_game():  # Funktion, die das Spiel startet.
     xsize = get_dimensionx()
     ysize = get_dimensiony()
     matrixlist = generate_bingo_cards(playernamelist, xsize, ysize)
-    display_bingo_cards(playernamelist, matrixlist)
+    mark_word(playernamelist, matrixlist)
 
 
 if __name__ == "__main__":  # wird ausgeführt, wenn das Skript direkt ausgeführt wird.
