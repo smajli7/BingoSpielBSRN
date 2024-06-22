@@ -86,3 +86,10 @@ for k in playernamelist:
     matrixlist.append(matrix) #fügt die bingokartenmatrix einer person in die bingokartenliste ein
     matrix = [] #leere die Liste, damit die nächste Spieler eine neue Liste erstellen kann
     initialize_file() #man setzt buzzwords_list wieder auf den ursprünglichen Inhalt zurück.
+
+
+# Ausgabe der Bingokarten zur Überprüfung
+for i, matrix in enumerate(matrixlist):  # i ist der Index, matrix ist die Bingokarte
+    print(f"\nBingokarte für {playernamelist[i]}:") # Ausgabe des Spielernamens
+    for row in matrix: # row ist eine Zeile der Bingokarte
+        print("\t".join(str(cell) for cell in row)) # Ausgabe der Bingokarte
