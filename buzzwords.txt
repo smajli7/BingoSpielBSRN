@@ -1,155 +1,150 @@
-Agile
-Algorithm
-API
-Automation
-Bandwidth
-Benchmark
-Big Data
-Blockchain
+Algorithmus
+Byte
 Cloud
-Containerization
-Continuous Integration
-Cybersecurity
-Data Lake
-Data Mining
-Data Science
-Deep Learning
-DevOps
-Digital Transformation
-Disruption
-Distributed Ledger
-Ecosystem
+Datenbank
+Debugging
+Download
 Encryption
-End-to-End
-Full Stack
-GDPR
-High Availability
-Hyperconvergence
-IoT (Internet of Things)
-Kubernetes
-Machine Learning
-Microservices
-Migration
-Monetization
-Multi-Cloud
-MVP (Minimum Viable Product)
-Neural Network
-On-Premise
-Open Source
-Orchestration
-Paradigm Shift
-Platform
-Predictive Analytics
-Quantum Computing
-Refactoring
-ROI (Return on Investment)
-SaaS (Software as a Service)
-Scalability
-Scrum
-Serverless
-Single Pane of Glass
-Smart Contracts
-Software-Defined
-Solution
-Synergy
-Tech Stack
-Transformation
-UI/UX
-Virtualization
+Firewall
+Grafik
+Hardware
+Internet
+Java
+Kernel
+Loop
+Modem
+Netzwerk
+OpenSource
+Pixel
+Queue
+Router
+Software
+Syntax
+Token
+URL
+Virus
+Webdesign
+XML
+API
+Backup
+Cache
+Compiler
+Daten
+Ethernet
+Forenschleife
+Gateway
+Host
+IP
+JavaScript
+Klick
+Login
+Malware
+Node
+Objekt
+Programm
+Query
+RAM
+Server
+Tag
+User
+Version
+Web
+Zip
+Array
+Browser
+Cookie
+DNS
+E-Mail
+Format
+GUI
+HTML
+Index
+JPEG
+Konsole
+LAN
+Monitor
+Netzwerk
+Operator
+Passwort
+Query
+Root
+SSH
+Terminal
+Upload
+Variable
+Wiki
+XML
+Access
+Bit
+Cyber
+Domain
+Emulation
+Framework
+Git
+Hacker
+Icon
+Java
+Keyboard
+Linux
+Mac
+Null
+OpenGL
+Ping
+QR-Code
+Runtime
+Script
+Trojaner
+Unicode
+VPN
+Wireless
+XHTML
+YAML
+App
+Bitmap
+Cursor
+Disk
+Extension
+Function
+Grid
+Hyperlink
+Input
+JSON
+Keyword
+Library
+Matrix
+NodeJS
+OAuth
+Proxy
+Query
+Router
+SQL
+Template
+Unicode
+Vektor
+Webapp
+XHTML
+YAML
+Archiv
+Block
+Cluster
+Debugger
+Emulator
+Firmware
+Gradient
+Hypertext
+Inline
+JPEG
+Keystore
+Logic
+Module
+Network
+Object
+Protocol
+Queue
+Resource
+Stack
+Transistor
+Unix
+Visual
 Workflow
-5G
-Agile Methodology
-API Gateway
-Automated Testing
-Availability Zone
-Big Data Analytics
-Blockchain Technology
-Business Intelligence
-Cloud Computing
-Cloud Native
-Continuous Deployment
-Continuous Delivery
-Cyber Attack
-Data Analytics
-Data Governance
-Data Integrity
-Data Visualization
-Database Sharding
-Deep Neural Network
-Digital Economy
-Digital Twin
-Distributed Systems
-Edge Computing
-Enterprise Architecture
-Fault Tolerance
-Frontend Development
-High Performance
-Hybrid Cloud
-Incident Response
-Infrastructure as Code
-Innovation
-Integration
-IT Infrastructure
-Kubernetes Cluster
-Legacy Systems
-Load Balancing
-Low Latency
-Managed Services
-Microservice Architecture
-Network Security
-NoSQL
-PaaS (Platform as a Service)
-Private Cloud
-Public Cloud
-Real-time Data
-Redundancy
-Resilience
-Responsive Design
-REST API
-Risk Management
-Scalability Testing
-Security Compliance
-Serverless Architecture
-Software Development
-Software Lifecycle
-Edge AI
-Elasticity
-Endpoint Security
-Fintech
-Infrastructure Modernization
-Intelligent Automation
-IoT Devices
-IT Automation
-Machine Learning Model
-Microservice Deployment
-Multi-Tenancy
-Network Automation
-Network Infrastructure
-Predictive Maintenance
-Quantum Encryption
-Real-time Analytics
-Scalability Solutions
-Security Architecture
-Service Mesh
-Smart Analytics
-Software Ecosystem
-Solution Design
-SRE (Site Reliability Engineering)
-Threat Detection
-User Experience Design
-Virtual Machine
-Web API
-Workflow Automation
-AI-driven Insights
-Cloud Management
-Cyber Defense
-Data-Driven Decision
-Data Lake Management
-DevOps Pipeline
-System Reliability
-Technology Integration
-Unified Communications
-User-Centric Design
-Virtual Network
-Web-scale
-Easter Egg
+Zylinder
