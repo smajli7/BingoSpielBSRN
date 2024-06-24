@@ -10,6 +10,8 @@ from prompt_toolkit import PromptSession
 from prompt_toolkit.shortcuts import yes_no_dialog
 from prompt_toolkit import PromptSession
 from prompt_toolkit.shortcuts import yes_no_dialog, button_dialog
+from prompt_toolkit.shortcuts import prompt
+from prompt_toolkit.formatted_text import HTML
 
 buzzwords_list = []  # erstellt eine leere Liste, wo die Buzzwörter gespeichert werden.
 console = Console()
@@ -29,18 +31,20 @@ def initialize_file(filename):  # diese Funktion füllt die Liste mit dem Inhalt
     return True
 
 def get_filename():
+    print("\033c", end="", flush=True)  # clears the console
     while True:
-        filename = session.prompt("Geben Sie den Dateinamen ein, aus dem die Wörter gezogen werden sollen: ")
+        filename = session.prompt(HTML("Geben Sie den <ansigreen>Dateinamen</ansigreen> ein, aus dem die Wörter gezogen werden sollen: "))
         if initialize_file(filename):
             break
 
 
 
-def get_player_count():  # Funktion, die die Spieleranzahl abfragt.
+
+def get_player_count():  # Funktion, die die Spieleranzahl abfragt
     while True:
         try:
             console.clear()
-            playercount = int(session.prompt("Geben Sie die Spieleranzahl ein: "))
+            playercount = int(session.prompt(HTML("Geben Sie die <ansicyan>Spieleranzahl</ansicyan> ein: ")))
             return playercount
         except ValueError:
             console.print("Fehler: Die Eingabe muss eine ganze Zahl sein.", style="bold red")
@@ -50,7 +54,7 @@ def get_player_names(playercount):  # Funktion, die die Spielernamen abfragt.
     playernamelist = []
 
     for j in range(playercount):
-        playername = session.prompt(f"Geben Sie den Namen des Spielers {j + 1} ein: ")
+        playername = prompt(HTML(f"Geben Sie den Namen des <ansimagenta>Spielers {j + 1}</ansimagenta> ein: "))
         playernamelist.append(playername)
 
         # Displaying the table after each input
@@ -67,7 +71,6 @@ def get_player_names(playercount):  # Funktion, die die Spielernamen abfragt.
 
     if not yes_no_dialog(title="Bestätigung", text=f"Sind diese Spielernamen korrekt?\n\n{playernames_str}").run():
         return get_player_names(playercount)
-
     console.print(table)
     return playernamelist
 
@@ -78,8 +81,11 @@ def get_player_names(playercount):  # Funktion, die die Spielernamen abfragt.
 def get_dimensionx():  # Funktion, die die Spaltenanzahl abfragt.
     while True:
         try:
-            xsize = int(session.prompt("Wie viele Spalten sollen die Bingokarten haben? "))
-            return xsize
+            xsize = int(session.prompt(HTML("Wie viele <ansicyan>Spalten</ansicyan> sollen die Bingokarten haben? (mindestens 2): ")))
+            if xsize > 1:
+                return xsize
+            else:
+                console.print("Fehler: Die Anzahl der Spalten muss größer als 1 sein.", style="bold red")
         except ValueError:
             console.print("Fehler: Die Eingabe muss eine ganze Zahl sein.", style="bold red")
 
@@ -87,8 +93,11 @@ def get_dimensionx():  # Funktion, die die Spaltenanzahl abfragt.
 def get_dimensiony():  # Funktion, die die Zeilenanzahl abfragt.
     while True:
         try:
-            ysize = int(session.prompt("Wie viele Zeilen sollen die Bingokarten haben? "))
-            return ysize
+            ysize = int(session.prompt(HTML("Wie viele <ansicyan>Zeilen</ansicyan> sollen die Bingokarten haben? (mindestens 2): ")))
+            if ysize > 1:
+                return ysize
+            else:
+                console.print("Fehler: Die Anzahl der Zeilen muss größer als 1 sein.", style="bold red")
         except ValueError:
             console.print("Fehler: Die Eingabe muss eine ganze Zahl sein.", style="bold red")
 
@@ -122,13 +131,13 @@ def display_bingo_cards(playernamelist, matrixlist, marked_words):
     console.print("Die Bingokarten wurden generiert. Viel Spaß beim Spielen!", style="bold green")
     for i, matrix in enumerate(matrixlist):  # i ist der Index, matrix ist die Bingokarte
 
-        table = Table(show_header=False, box=HEAVY_EDGE, border_style="bold blue", title=f"Spieler: {playernamelist[i]}")
+        table = Table(show_header=False, box=HEAVY_EDGE, border_style="bold blue", title=f"[bold blue]Spieler:[/bold blue] [magenta]{playernamelist[i]}[/magenta]")
         # Adding columns for each column in the bingo card
         for _ in range(len(matrix[0])):
             table.add_column()
 
         for row in matrix:  # row ist eine Zeile der Bingokarte
-            table.add_row(*[f"[red]{cell}[/red]" if cell in marked_words else str(cell) for cell in row])   # Ausgabe der Bingokarte
+            table.add_row(*[f"[red]{cell}[/red]" if cell in marked_words or cell == 0 else str(cell) for cell in row])   # Ausgabe der Bingokarte
 
         console.print(table)
 
