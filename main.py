@@ -153,7 +153,13 @@ def check_winner(matrix, marked_words):
         if all(matrix[row][col] in marked_words or matrix[row][col] == 0 for row in range(size)):
             return True
 
-    
+       # diagonals
+    if all(matrix[i][i] in marked_words or matrix[i][i] == 0 for i in range(size)):
+        return True
+    if all(matrix[i][size - 1 - i] in marked_words or matrix[i][size - 1 - i] == 0 for i in range(size)):
+        return True
+
+    return False 
 
 def mark_word(playernamelist, matrixlist):
     marked_words = set()
