@@ -110,17 +110,22 @@ def generate_bingo_cards(playernamelist, xsize, ysize):  # Funktion, die die Bin
         if len(buzzwords_list) < xsize * ysize: # Überprüfung, ob genug Buzzwörter vorhanden sind
             raise ValueError("Nicht genug Buzzwords, um die Bingokarten zu füllen") # Fehlermeldung, wenn nicht genug Buzzwörter vorhanden sind
         matrix = [] # Liste für die Bingokarte
+        used_words = set()  # Set, um die verwendeten Wörter zu verfolgen
         for l in range(ysize):  # zeilen
             b = [] # Liste für die Zeile
             for j in range(xsize):  # spalten
                 if xsize % 2 != 0 and ysize % 2 != 0 and l == middle_y and j == middle_x: # Joker in der Mitte, nur wenn xsize und(!) ysize ungerade sind
                     b.append("Joker") # fügt den Joker in die Mitte der Bingokarte ein
                 else:
-                    random_word = buzzwords_list.pop(0)  # nimmt das erste Element aus der Liste und entfernt es, damit kein Wort doppelt vorkommt
+                    random_word = None
+                    while not random_word or random_word in used_words:
+                        random_word = buzzwords_list.pop(0)  # nimmt das erste Element aus der Liste und entfernt es, damit kein Wort doppelt vorkommt
+                    used_words.add(random_word)  # fügt das Wort zu den verwendeten Wörtern hinzu
                     b.append(random_word) # fügt das zufällige Wort in die Bingokarte ein
             matrix.append(b) # fügt die Zeile der Bingokarte in die Bingokarte ein
         matrixlist.append(matrix)  # fügt die Bingokartenmatrix einer person in die Bingokartenliste ein
     return matrixlist # gibt die Liste der Bingokarten zurück
+
 
 
 def display_bingo_cards(playernamelist, matrixlist, marked_words): # Funktion, die die Bingokarten anzeigt
