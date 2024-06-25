@@ -1,67 +1,40 @@
-import sys, os
+import os
+import sys
 
-sys.path.append(os.path.join(sys.path[0],'../../tmp'))
-sys.path.append(os.path.join(sys.path[0],'../..'))
-import TermTk as ttk
+def run_term_tk():
+    sys.path.append(os.path.join(sys.path[0],'../..'))
+    import TermTk as ttk
 
-# Testing Window with a checkbox to enable/disable any control button
-class WindowFlagsTest(ttk.TTkWindow):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        rb   = ttk.TTkCheckbox(
-                    parent=self, pos=(0,0), size=(20,1), text='Reduce   Button',
-                    checked=bool(self.windowFlag()&ttk.TTkK.WindowFlag.WindowReduceButtonHint))
-        minb = ttk.TTkCheckbox(
-                    parent=self, pos=(0,1), size=(20,1), text='Minimize Button',
-                    checked=bool(self.windowFlag()&ttk.TTkK.WindowFlag.WindowMinimizeButtonHint))
-        maxb = ttk.TTkCheckbox(
-                    parent=self, pos=(0,2), size=(20,1), text='Maximize Button',
-                    checked=bool(self.windowFlag()&ttk.TTkK.WindowFlag.WindowMaximizeButtonHint))
-        cb   = ttk.TTkCheckbox(
-                    parent=self, pos=(0,3), size=(20,1), text='Close    Button',
-                    checked=bool(self.windowFlag()&ttk.TTkK.WindowFlag.WindowCloseButtonHint))
+    def demoWindowsFlags(root=None):
+        frame = ttk.TTkFrame(parent=root, border=False)
+        return frame
 
-        # Set the window flag/field based on the checkbox state
-        def _cbStateChanged(state,field):
-            if state==ttk.TTkK.Checked:
-                self.setWindowFlag(self.windowFlag()|field)
-            else:
-                self.setWindowFlag(self.windowFlag()&(~field))
+    def main():
+        root = ttk.TTk()
+        
+        win1 = ttk.TTkWindow(parent=root, pos=(1, 1), size=(60, 30), title="Test Window 1", border=True, layout=ttk.TTkGridLayout(), flags=ttk.TTkK.NONE)
+        demoWindowsFlags(win1)
+    
+        win2 = ttk.TTkWindow(parent=root, pos=(65, 1), size=(60, 30), title="Test Window 2", border=True, layout=ttk.TTkGridLayout(), flags=ttk.TTkK.NONE)
+        demoWindowsFlags(win2)
+    
+        root.mainloop()
 
-        rb.stateChanged.connect(  lambda x: _cbStateChanged(x,ttk.TTkK.WindowFlag.WindowReduceButtonHint))
-        minb.stateChanged.connect(lambda x: _cbStateChanged(x,ttk.TTkK.WindowFlag.WindowMinimizeButtonHint))
-        maxb.stateChanged.connect(lambda x: _cbStateChanged(x,ttk.TTkK.WindowFlag.WindowMaximizeButtonHint))
-        cb.stateChanged.connect(  lambda x: _cbStateChanged(x,ttk.TTkK.WindowFlag.WindowCloseButtonHint))
+    if __name__ == "__main__":
+        main()
 
+# Fork and exec for the first process
+pid1 = os.fork()
+if pid1 == 0:  # Child process
+    run_term_tk()
+    sys.exit(0)  # Exit child process
 
+# Fork and exec for the second process
+pid2 = os.fork()
+if pid2 == 0:  # Child process
+    run_term_tk()
+    sys.exit(0)  # Exit child process
 
-def demoWindowsFlags(root=None):
-    frame = ttk.TTkFrame(parent=root, border=False)
-
-    # Standard window (the close button is enabled by default)
-    WindowFlagsTest(parent=frame, pos = (0,0), size=(40,8), title="Test Window 1")
-    # Enable Max anc Close button
-    WindowFlagsTest(parent=frame, pos = (2,2), size=(40,8), title="Test Window 2",
-                    flags = ttk.TTkK.WindowFlag.WindowMaximizeButtonHint | ttk.TTkK.WindowFlag.WindowCloseButtonHint)
-    # Disable all the control buttons
-    WindowFlagsTest(parent=frame, pos = (4,4), size=(40,8), title="Test Window 3",
-                    flags = ttk.TTkK.NONE)
-    # Enable only the Max and Min Buttons
-    WindowFlagsTest(parent=frame, pos = (6,6), size=(40,8), title="Test Window 4",
-                    flags = ttk.TTkK.WindowFlag.WindowMinMaxButtonsHint)
-    # Enable only the Minimize button
-    WindowFlagsTest(parent=frame, pos = (8,8), size=(40,8), title="Test Window 5",
-                    flags = ttk.TTkK.WindowFlag.WindowReduceButtonHint)
-
-    return frame
-
-
-
-def main():
-    root = ttk.TTk()
-    win1 = ttk.TTkWindow(parent=root,pos = (1,1), size=(60,30), title="Test Window Flags", border=True, layout=ttk.TTkGridLayout(), flags=ttk.TTkK.NONE)
-    demoWindowsFlags(win1)
-    root.mainloop()
-
-if __name__ == "__main__":
-    main()
+# Parent process waits for both children to finish
+os.waitpid(pid1, 0)
+os.waitpid(pid2, 0)
