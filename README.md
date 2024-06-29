@@ -2,32 +2,44 @@
 
 ## Installation
 
-Diese daten benötegigen Sie um das Spiel zu spielen:
+Vorraussetzungen um das Spiel zu spielen:
 
-```bash
-git clone https://github.com/smajli7/BingoSpielBSRN.git
-pip install rich
+```
+bash
+```
+Die Dateien **main.py** und **buzzwords.txt** welche man unter dem Repository finden kann: 
+```
+https://github.com/smajli7/BingoSpielBSRN.git
+```
+Bitte installieren Sie vor dem Start des Spiels das erforderliche Modul mit dem Befehl:
+```
+python -m pip install rich
 ```
 
 ## Verwendung
 
-Diese ist ein Python Spiel welches Sie so Starten können.
+Um das Spiel zu starten geben Sie in einer beliebigen Terminal einer IDE für Python (in unseren Testcases haben wir die IDE 'PyCharm' verwendet.)
 
-```bash
+```
 python3 main.py
 ```
 ## Funktionen
 
 - **Eigene Wörter benutzen**: Man kann das Spiel mit eigenen Wörtern aus einer txt-Datei spielen.
-- **Mit Freunden spielen**:Wenn man angibt, wie viele Spieler in der Partie dabei sein sollen, können deine Freunde über den Code beitreten.
+- **Mit Freunden spielen**: Das Spiel hat die Funktion, dass man die Anzahl der Mitspieler selbst bestimmen kann.
 - **Victory Screen und Markieren der Wörter**: Man kann die Wörter, die man markiert hat, auch wieder rückgängig machen, wenn man das Wort erneut eingibt. Am Ende eines Spiels werden alle Mitspieler mit einem schönen Victory Screen informiert, wer gewonnen hat.
 
 ## Kontakt
 
-Wen Sie Fragen haben bitte an den besten Prof auf dieser seite  wenden - https://www.christianbaun.de/BSRN24/index.html
+Wenn Sie Fragen haben, dann können Sie jederzeit Michael Nguyen (einer der Backend Contributors im Code) unter dieser Email erreichen:
 
-## Gameplay
+```
+nguyenmichaelgiahuy@gmail.com
+```
 
-Hier ist ein Gameplay wie man das Spiel spielen sollte:
+## Spielverlauf
 
+Hier ist eine Demonstration wie eine Runde auf der Benutzeroberfläche aussehen könnte:
+```
 https://github.com/mufasaQ/bingo/assets/168477996/09b4b7cf-3213-4259-9d16-68aff71298f2
+```
