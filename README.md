@@ -41,5 +41,5 @@ FJLMMBingoSpiel@proton.me
 
 Hier ist eine Demonstration wie eine Runde auf der Benutzeroberfläche aussehen könnte:
 ```
-[![YouTube](http://i.ytimg.com/vi/CNWqhDwkmBc/hqdefault.jpg)](https://www.youtube.com/watch?v=CNWqhDwkmBc)
+(https://github.com/smajli7/BingoSpielBSRN/blob/main/archiv/Video.mp4)
 ```
