@@ -42,7 +42,4 @@ FJLMMBingoSpiel@proton.me
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO-ID" frameborder="0" allowfullscreen></iframe>
 
 
-Hier ist eine Demonstration wie eine Runde auf der Benutzeroberfläche aussehen könnte:
-```
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO-ID" frameborder="0" allowfullscreen></iframe>
-```
+
