@@ -18,7 +18,8 @@ python -m pip install rich
 
 
 ## Verwendung
-![pycharmIcon](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/03a7ed2d-aa7f-47cf-ac5a-94539169892f)
+<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/03a7ed2d-aa7f-47cf-ac5a-94539169892f" alt="pycharmIcon" width="20%">
+
 Um das Spiel zu starten geben Sie in einer beliebigen Terminal einer IDE für Python (in unseren Testcases haben wir die IDE 'PyCharm' verwendet.)
 
 ```
