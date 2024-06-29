@@ -18,7 +18,7 @@ python -m pip install rich
 
 
 ## Verwendung
-<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/03a7ed2d-aa7f-47cf-ac5a-94539169892f" alt="pycharmIcon" width="20%">
+<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/03a7ed2d-aa7f-47cf-ac5a-94539169892f" alt="pycharmIcon" width="10%">
 
 Um das Spiel zu starten geben Sie in einer beliebigen Terminal einer IDE für Python (in unseren Testcases haben wir die IDE 'PyCharm' verwendet.)
 
@@ -26,7 +26,9 @@ Um das Spiel zu starten geben Sie in einer beliebigen Terminal einer IDE für Py
 python3 main.py
 ```
 ## Funktionen
-![Icon von Zahnrädern, welche symbolisch Funktionen darstellen sollten] (https://static-00.iconduck.com/assets.00/function-icon-2048x1463-lnlz684g.png)
+<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/ceab0f4c-d2a7-46c7-926f-b75fc606f678" alt="gears" width="10%">
+
+
 
 - **Eigene Wörter benutzen**: Man kann das Spiel mit eigenen Wörtern aus einer txt-Datei spielen.
 - **Mit Freunden spielen**: Das Spiel hat die Funktion, dass man die Anzahl der Mitspieler selbst bestimmen kann.
