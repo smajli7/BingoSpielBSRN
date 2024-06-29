@@ -1,4 +1,3 @@
-import math
 import os
 import sys
 import random
@@ -8,8 +7,6 @@ from rich.console import Console
 from rich.table import Table
 from rich.console import Console
 from rich.panel import Panel
-from rich.box import SQUARE
-from rich.box import HEAVY
 from rich.box import HEAVY_EDGE
 from prompt_toolkit import PromptSession
 from prompt_toolkit.shortcuts import yes_no_dialog
@@ -43,7 +40,6 @@ def get_filename():
         filename = session.prompt(HTML("Geben Sie den <ansigreen>Dateinamen</ansigreen> ein, aus dem die Wörter gezogen werden sollen: "))
         if initialize_file(filename):
             return filename
-            break
     
 
 
@@ -201,7 +197,8 @@ def mark_word(playernamelist, matrixlist,pid,idlist): # Funktion, die die Wörte
                     break # beendet die Schleife
             if found: # wenn das Wort gefunden wurde
                 break
-        lessen(pid)#lesen ob jemand Gewonnen hat
+        if(len(idlist)>0):#Chekt nur wen mehrer Spielr drin sind
+            lessen(pid)#lesen ob jemand Gewonnen hat
 
         for i, matrix in enumerate(matrixlist): # Schleife, die die Bingokarten durchgeht
             if check_winner(matrix, marked_words):# Überprüfung, ob ein Spieler gewonnen hat
@@ -210,8 +207,12 @@ def mark_word(playernamelist, matrixlist,pid,idlist): # Funktion, die die Wörte
                 log_event("Sieg")  # Loggen des Siegs
                 log_event("Ende des Spiels")  # Loggen des Spielendes
                 log_files[0].close()
-                create_victory_screen(playernamelist[0])#Sieges-Screen anzeigen  
-                schrieben(playernamelist[0],pid,idlist)#Gegenern Mitteilen das man Gewonen hat
+                create_victory_screen(playernamelist[0])#Sieges-Screen anzeigen
+                if(len(idlist)==0):#unlinken wen man selber spielte
+                    os.unlink(pid)
+                    sys.exit()
+                if(len(idlist)>0):# schaut ob meherere spiler drin sind
+                    schreiben(playernamelist[0],pid,idlist)#Gegenern Mitteilen das man Gewonen hat
 
 
 
@@ -220,11 +221,7 @@ def create_victory_screen(text):#Funktion zum Erstellen des Sieges-Screens
     background_colors = ['green', 'blue', 'magenta', 'yellow', 'cyan']#Hintergrundfarben
    
     victory_text = f"Spieler {text} hat gewonnen!"#Sieger text
-
     
-    
-       
-
     for color in background_colors:#schleife zur Farben wechslung
         console.clear()#console leeren um den siege anzu zeigen
         styled_panel = Panel.fit(f"[bold {color} on black]{victory_text}[/]")#Sieges text mit der Schleifen Farbe
@@ -242,21 +239,7 @@ def send(pipe,pipm):
     s=f"{pipm}\n".encode()
     os.write(fifo,s)#Pipe nachricht schreiben
     os.close(fifo)#close pipe
-    
-def sendfile(pipe,pipm,xs,ys):
-   for pa in pipe:
-        with open(pa, 'w') as fifo:#öffnet die pipes der gegener um Spieldaten zu schreiben
-            fifo.write(pipm + "\n")#Pipe nachricht schreiben
-            fifo.flush()  # Sicherstellen, dass die Daten sofort geschrieben werden
-            time.sleep(1)
-            fifo.write(f"{xs}\n")#Pipe nachricht schreiben
-            fifo.flush()  # Sicherstellen, dass die Daten sofort geschrieben werden
-            time.sleep(1)
-            fifo.write(f"{ys}\n")#Pipe nachricht schreiben
-            fifo.flush()  # Sicherstellen, dass die Daten sofort geschrieben werden
-            time.sleep(1)
-            fifo.close#close pipe
-        
+
 def empfang(zahl,pi):
     pipelist=[]#emfangene Pipe von den gegnern und speichert in der liste
     for i in range(1,zahl):#schleife für die anzahl der spieler
@@ -273,6 +256,30 @@ def empfang(zahl,pi):
             print(e)
     return pipelist# Gibt die liste der spiler pipes ohne seine eigen pipe zurück
 
+    
+def sendfile(pipe,pids2,pipm1,xs,ys):
+   for pa in pipe:
+        if(pids2==pa):#Skipt seine eigene pipe
+            continue
+            
+        with open(pa, 'w') as fifo:#öffnet die pipes der gegener um Spieldaten zu schreiben
+            fifo.write(f"{pipm1}\n")#Pipe nachricht schreiben
+            fifo.flush()  # Sicherstellen, dass die Daten sofort geschrieben werden
+            time.sleep(1)
+            fifo.write(f"{xs}\n")#Pipe nachricht schreiben
+            fifo.flush()  # Sicherstellen, dass die Daten sofort geschrieben werden
+            time.sleep(1)
+            fifo.write(f"{ys}\n")#Pipe nachricht schreiben
+            fifo.flush()  # Sicherstellen, dass die Daten sofort geschrieben werden
+            time.sleep(1)
+            for value in pipe:
+                fifo.write(value + "\n")#Schreibt die pipes von den gegnern mit zeilenumbruch
+                fifo.flush()#Sicherstellen, dass die Daten sofort geschrieben werden
+                time.sleep(1)
+            fifo.close()#close pipe 
+        
+
+
 def empfangfile(pi):
     liste=[]#Spieldaten in liste ab speichern
     with open(pi, 'r') as fifo:#öffnet eigene pipe um die Spieldaten zu erhalten
@@ -283,34 +290,7 @@ def empfangfile(pi):
             else:
                 fifo.close()#close pipe
                 return liste
-
-
-def lessenid(co):
-    liste=[]#spieler pipes
-    with open(co, 'r') as fifo:#öffnet eigene pipe um die Pipes von den mitspielern zu erhalten
-        while True:
-            line = fifo.readline().strip()#verwandelt byt UTF-8 in String ohne lerzeichen 
-            if line:
-                liste.append(line)
-            else:
-                fifo.close()#close pipe
-                return liste
-        
-        
-     
-                 
-def schriebid(ji,pi):
-    for pa in ji:
-        if(pa==pi):#Skipt seine eigene pipe
-            continue
-        with open(pa, 'w') as fifo:#öffnet die pipes an die die gegner pipes gesendet wreden
-            for value in ji:
-                fifo.write(value + "\n")#Schreibt die pipes von den gegnern mit zeilenumbruch
-                fifo.flush()#Sicherstellen, dass die Daten sofort geschrieben werden
-                time.sleep(1)
-            fifo.close()#close pipe            
-                
-                
+              
 def lessen(pi4):
     try:
         fifo=os.open(pi4,os.O_RDONLY | os.O_NONBLOCK)#öffnet seine eigene pipe als nur lessen und nicht blockirend
@@ -328,12 +308,8 @@ def lessen(pi4):
             sys.exit()#System Beneden
     except IOError as e:
         print(e)     
-                    
-        
-    
-         
-                 
-def schrieben(name,pi6,paths):
+                         
+def schreiben(name,pi6,paths):
     for i in paths:#geht durch jede gegenerische pipe
         if(i==pi6):#Skipt seine eigene pipe
             continue
@@ -364,24 +340,25 @@ def start_game():  # Funktion, die das Spiel startet
                 ysize = get_dimensiony() #y
                 create_log_file(pids) 
                 matrixlist = generate_bingo_cards(playernamelist, xsize, ysize) # Spielfeld wird generiert
-                
+                spieler_ids=[]
                 if(playercount>1):
                     spieler_ids=empfang(playercount,pid)#Methode welche die liste der gegnerische pips spiel ermittelt und zurück gibt
-                    sendfile(spieler_ids,file,xsize,ysize)#Methode zur sendung von spiel informationen
                     spieler_ids.append(f"{pids}\n")#ergnzung der eigene pipe
+                    sendfile(spieler_ids,pids,file,xsize,ysize)#Methode zur sendung von spiel informationen
                     time.sleep(2)#seit für verabeitung von den gegenerischen spiler
-                    schriebid(spieler_ids,pids)#snedet die Spielder pips liste an die Gegnerischen spieler
                 mark_word(playernamelist, matrixlist,pids,spieler_ids)
-            elif(JN=="joinround"):
+                break
+            if(JN=="joinround"):
                 vr=str(input("code"))#input von der newround pipe zur komunikation
                 send(vr,pids)#Senden der eigen pipe and die newround prozesses
                 filename=empfangfile(pids)#Empfangen von Spiel informationen vom newround prozesses
                 initialize_file(filename[0])#Benutz die empfange daten zur generirung des Spieles
                 playernamelist = get_player_names(1)#Spieler namen erfassen
-                spie=lessenid(pids)#lesen der Gegnerische pipes
                 matrixlist = generate_bingo_cards(playernamelist, int(filename[1]), int(filename[2]))# Spielfeld wird generiert
                 create_log_file(pids)
-                mark_word(playernamelist, matrixlist,pids,spie) # Funktion zur Markierung von Wörtern
+                del filename[:3]#Löscht dei ersten 3 Positionen
+                mark_word(playernamelist, matrixlist,pids,filename) # Funktion zur Markierung von Wörtern
+                break
             else:print("Falsche eingabe, bitte noch mal versuchen")#Print für falsch eingaben
     except KeyboardInterrupt:#exceptions zur löschung der Pipes
         os.unlink(pids)    
