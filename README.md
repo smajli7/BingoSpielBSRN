@@ -6,7 +6,7 @@ Vorraussetzungen um das Spiel zu spielen:
 
 ```
 Python
-WSL
+WSL[^4]
 ```
 Die Dateien **main.py** und **buzzwords.txt** welche man unter dem Repository finden kann: 
 ```
