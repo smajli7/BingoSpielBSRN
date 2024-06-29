@@ -11,7 +11,7 @@ pip install rich
 
 ## Verwendung
 
-Diese ist ein Python Spiel welches Sie so Satreten können.
+Diese ist ein Python Spiel welches Sie so Starten können.
 
 ```bash
 python3 main.py
