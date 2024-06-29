@@ -47,7 +47,6 @@ FJLMMBingoSpiel@proton.me
 ```
 
 ## Spielverlauf
-![Icon von Spielcontroller, welches symbolisch für den Ablauf des Spiels darstellen sollte]
-Hier ist eine Demonstration wie eine Runde auf der Benutzeroberfläche aussehen könnte:
 
-https://github.com/mufasaQ/bingo/assets/168477996/09b4b7cf-3213-4259-9d16-68aff71298f2
+https://github.com/smajli7/BingoSpielBSRN/assets/109920023/b0684679-0ad1-41ea-89e4-57e6e420b800
+
