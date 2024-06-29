@@ -216,7 +216,7 @@ def create_victory_screen(text):  # Funktion zum Erstellen des Sieges-Screens
         time.sleep(1)
 
     console.clear()  # Konsole leeren
-    styled_panel = Panel.fit(f"[bold white on blue]{victory_text}[/]")  # Siegestext mit weißer Box um den Satz
+    styled_panel = Panel.fit(f"[bold yellow]{victory_text}[/]")  # Siegestext mit weißer Box um den Satz
     console.print(styled_panel)  # Ausgabe
 
 def send(pipe, pipm):
