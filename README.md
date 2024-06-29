@@ -41,5 +41,5 @@ FJLMMBingoSpiel@proton.me
 
 Hier ist eine Demonstration wie eine Runde auf der Benutzeroberfläche aussehen könnte:
 ```
-https://github.com/mufasaQ/bingo/assets/168477996/09b4b7cf-3213-4259-9d16-68aff71298f2
+[![YouTube](http://i.ytimg.com/vi/CNWqhDwkmBc/hqdefault.jpg)](https://www.youtube.com/watch?v=CNWqhDwkmBc)
 ```
