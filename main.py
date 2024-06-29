@@ -2,7 +2,6 @@ import os
 import sys
 import random
 import time
-from random import choice
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
@@ -114,6 +113,7 @@ def generate_bingo_cards(playernamelist, xsize, ysize):  # Funktion, die die Bin
         if len(buzzwords_list) < xsize * ysize:  # Überprüfung, ob genug Buzzwörter vorhanden sind
             raise ValueError(
                 "Nicht genug Buzzwords, um die Bingokarten zu füllen")  # Fehlermeldung, wenn nicht genug Buzzwörter vorhanden sind
+        used_words = set()  # Set für verwendete Wörter
         matrix = []  # Liste für die Bingokarte
         for l in range(ysize):  # Zeilen
             b = []  # Liste für die Zeile
@@ -121,12 +121,17 @@ def generate_bingo_cards(playernamelist, xsize, ysize):  # Funktion, die die Bin
                 if xsize % 2 != 0 and ysize % 2 != 0 and l == middle_y and j == middle_x:  # Joker in der Mitte, nur wenn xsize und ysize ungerade sind
                     b.append("Joker")  # Fügt den Joker in die Mitte der Bingokarte ein
                 else:
-                    random_word = buzzwords_list.pop(
-                        0)  # Nimmt das erste Element aus der Liste und entfernt es, damit kein Wort doppelt vorkommt
-                    b.append(random_word)  # Fügt das zufällige Wort in die Bingokarte ein
+                    while True:
+                        random_word = buzzwords_list.pop(0)  # Nimmt das erste Element aus der Liste und entfernt es, damit kein Wort doppelt vorkommt
+                        if random_word not in used_words:  # Überprüfung, ob das Wort bereits verwendet wurde
+                            used_words.add(random_word)  # Fügt das Wort zu den verwendeten Wörtern hinzu
+                            b.append(random_word)  # Fügt das zufällige Wort in die Bingokarte ein
+                            break  # Beendet die Schleife, wenn ein neues Wort gefunden wurde
+                    buzzwords_list.append(random_word)  # Füge das Wort zurück zur Liste, damit es nicht verloren geht
             matrix.append(b)  # Fügt die Zeile der Bingokarte in die Bingokarte ein
         matrixlist.append(matrix)  # Fügt die Bingokartenmatrix einer Person in die Bingokartenliste ein
     return matrixlist  # Gibt die Liste der Bingokarten zurück
+
 
 def display_bingo_cards(playernamelist, matrixlist, marked_words):  # Funktion, die die Bingokarten anzeigt
     print("\033c", end="", flush=True)  # Löscht die Konsole
@@ -325,7 +330,7 @@ def start_game():  # Funktion, die das Spiel startet
                 mark_word(playernamelist, matrixlist, pids, filename)  # Funktion zur Markierung von Wörtern
                 break
             else:
-                print("Falsche Eingabe, bitte noch mal versuchen")  # Ausgabe bei falschen Eingaben
+                console.print("[bold red]Falsche Eingabe, bitte noch mal versuchen[/bold red]")
     except KeyboardInterrupt:  # Exceptions zur Löschung der Pipes
         os.unlink(pids)
     except FileNotFoundError:
