@@ -31,10 +31,10 @@ python3 main.py
 
 ## Kontakt
 
-Wenn Sie Fragen haben, dann können Sie jederzeit Michael Nguyen (einer der Backend Contributors im Code) unter dieser Email erreichen:
+Wenn Sie Fragen haben, dann können Sie jederzeit an die gemeinsame E-Mail des Teams.
 
 ```
-nguyenmichaelgiahuy@gmail.com
+FJLMMBingoSpiel@proton.me
 ```
 
 ## Spielverlauf
