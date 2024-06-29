@@ -237,6 +237,7 @@ def empfang(zahl, pi):
                 pipelist.append(daten.decode().strip())  # Verwandelt Byte UTF-8 in String ohne Leerzeichen und erweitert dies in der Liste
             finally:
                 os.close(fifo)  # Pipe schließen
+                os.unlink(str(pi))
         except IOError as e:
             print(e)
     return pipelist  # Gibt die Liste der Spieler-Pipes ohne eigene Pipe zurück
