@@ -39,7 +39,8 @@ FJLMMBingoSpiel@proton.me
 
 ## Spielverlauf
 
-https://github.com/mufasaQ/bingo/assets/168477996/09b4b7cf-3213-4259-9d16-68aff71298f2
+
+[![Video ansehen](https://github.com/mufasaQ/bingo/assets/168477996/09b4b7cf-3213-4259-9d16-68aff71298f2)]
 
 
 
