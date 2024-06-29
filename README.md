@@ -26,7 +26,8 @@ Um das Spiel zu starten geben Sie in einer beliebigen Terminal einer IDE für Py
 python3 main.py
 ```
 ## Funktionen
-<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/af3957f2-e531-48ce-8f82-a2cd8dd29726" alt="kontakt" width="10%">
+<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/ceab0f4c-d2a7-46c7-926f-b75fc606f678" alt="gears" width="10%">
+
 
 
 
@@ -37,7 +38,8 @@ python3 main.py
 - **Victory Screen und Markieren der Wörter**: Man kann die Wörter, die man markiert hat, auch wieder rückgängig machen, wenn man das Wort erneut eingibt. Am Ende eines Spiels werden alle Mitspieler mit einem schönen Victory Screen informiert, wer gewonnen hat.
 
 ## Kontakt
-![Icon von Kontakt einem Kontaktbuch, welches symbolisch Kontakt] (https://cdn-icons-png.flaticon.com/512/1034/1034153.png)
+<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/af3957f2-e531-48ce-8f82-a2cd8dd29726" alt="kontakt" width="10%">
+
 Wenn Sie Fragen haben, dann können Sie jederzeit an die gemeinsame E-Mail des Teams.
 
 ```
