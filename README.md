@@ -1,4 +1,4 @@
-![BingoPNG](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/cd167f68-e38f-45f0-8892-44bb1b60806a)
+![344428669-8c78e104-01d0-4205-81ea-be945277e7f7 (1)](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/e9339b8b-1fd0-41bf-8bfe-f0f3088d9fc4)
 
 ## Installation
 
