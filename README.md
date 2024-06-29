@@ -5,8 +5,8 @@
 Vorraussetzungen um das Spiel zu spielen:
 
 ```
-Python
-WSL[^4]
+Python (python3)
+WSL (Ubuntu)
 ```
 Die Dateien **main.py** und **buzzwords.txt** welche man unter dem Repository finden kann: 
 ```
