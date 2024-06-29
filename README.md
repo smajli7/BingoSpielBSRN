@@ -48,5 +48,8 @@ FJLMMBingoSpiel@proton.me
 
 ## Spielverlauf
 
-https://github.com/smajli7/BingoSpielBSRN/assets/109920023/b0684679-0ad1-41ea-89e4-57e6e420b800
+
+https://github.com/smajli7/BingoSpielBSRN/assets/109920023/24cdbfd8-97bb-4c46-b86e-9eea853017c8
+
+
 
