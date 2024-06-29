@@ -39,7 +39,7 @@ FJLMMBingoSpiel@proton.me
 
 ## Spielverlauf
 
-[![Video ansehen](https://img.youtube.com/vi/CNWqhDwkmBc/0.jpg)](https://www.youtube.com/watch?v=CNWqhDwkmBc)
+https://img.youtube.com/vi/CNWqhDwkmBc/0.jpg)](https://www.youtube.com/watch?v=CNWqhDwkmBc
 
 
 
