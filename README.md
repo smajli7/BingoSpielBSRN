@@ -39,7 +39,7 @@ FJLMMBingoSpiel@proton.me
 
 ## Spielverlauf
 
-https://img.youtube.com/vi/CNWqhDwkmBc/0.jpg)](https://www.youtube.com/watch?v=CNWqhDwkmBc
+https://github.com/mufasaQ/bingo/assets/168477996/09b4b7cf-3213-4259-9d16-68aff71298f2
 
 
 
