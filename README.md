@@ -38,7 +38,7 @@ python3 main.py
 - **Victory Screen und Markieren der Wörter**: Man kann die Wörter, die man markiert hat, auch wieder rückgängig machen, wenn man das Wort erneut eingibt. Am Ende eines Spiels werden alle Mitspieler mit einem schönen Victory Screen informiert, wer gewonnen hat.
 
 ## Kontakt
-<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/af3957f2-e531-48ce-8f82-a2cd8dd29726" alt="kontakt" width="10%">
+<img src="https://github.com/mufasaQ/bingo/assets/168477996/005323dd-22e6-4b8e-9c9e-2953fbc2880f" alt="kontakt" width="10%">
 
 Wenn Sie Fragen haben, dann können Sie jederzeit an die gemeinsame E-Mail des Teams.
 
