@@ -1,4 +1,4 @@
-![Titelbild](https://github.com/mufasaQ/bingo/assets/168477996/8c78e104-01d0-4205-81ea-be945277e7f7)
+![BingoPNG](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/cd167f68-e38f-45f0-8892-44bb1b60806a)
 
 ## Installation
 
