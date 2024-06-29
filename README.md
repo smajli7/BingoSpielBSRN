@@ -6,23 +6,26 @@ Vorraussetzungen um das Spiel zu spielen:
 
 ```
 Python
+WSL
 ```
 Die Dateien **main.py** und **buzzwords.txt** welche man unter dem Repository finden kann: 
 ```
 https://github.com/smajli7/BingoSpielBSRN.git
 ```
-Bitte installieren Sie vor dem Start des Spiels das erforderliche Modul mit dem Befehl:
+Bitte installieren Sie vor dem Start des Spiels das erforderlichen Module mit dem Befehlen:
 ```
 python -m pip install rich
+python -m pip install prompt_toolkit
 ```
 
 
 ## Verwendung
 <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/03a7ed2d-aa7f-47cf-ac5a-94539169892f" alt="pycharmIcon" width="10%"> [^1]
 
-Um das Spiel zu starten geben Sie in einer beliebigen Terminal einer IDE für Python (in unseren Testcases haben wir die IDE 'PyCharm' verwendet.)
+Um das Spiel zu starten wird WSL[^4] benötigt. Anschließend wir das Spiel durch ein Ubuntu-Terminal gestartet
 
 ```
+cd *yourDirectory*
 python3 main.py
 ```
 ## Funktionen
@@ -55,7 +58,7 @@ https://github.com/smajli7/BingoSpielBSRN/assets/109920023/24cdbfd8-97bb-4c46-b8
 
 [^1]: https://miro.medium.com/v2/resize:fit:1200/1*6Dhu1H4t028lOGbaZuyRCw.png
 [^2]: https://static-00.iconduck.com/assets.00/function-icon-2048x1463-lnlz684g.png
-
+[^4]: https://learn.microsoft.com/en-us/windows/wsl/install
 
 
 
