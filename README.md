@@ -1,5 +1,4 @@
-
-![BingoPNG](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/24f7298f-56b7-49e2-af76-6f2f66184a9c)
+![buzzwordbingo2](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/a4fb727c-321b-453f-950b-fda6f460a2a7)
 
 ## Installation
 
