@@ -16,8 +16,9 @@ Bitte installieren Sie vor dem Start des Spiels das erforderliche Modul mit dem 
 python -m pip install rich
 ```
 
+
 ## Verwendung
-![Icon von PyCharm, der primären IDE auf der wir gearbeitet haben.] (https://miro.medium.com/v2/resize:fit:1200/1*6Dhu1H4t028lOGbaZuyRCw.png)
+![pycharmIcon](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/03a7ed2d-aa7f-47cf-ac5a-94539169892f)
 Um das Spiel zu starten geben Sie in einer beliebigen Terminal einer IDE für Python (in unseren Testcases haben wir die IDE 'PyCharm' verwendet.)
 
 ```
