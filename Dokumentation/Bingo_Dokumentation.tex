@@ -356,7 +356,7 @@ def send(pipe, pipm):
 \end{lstlisting}
 
 
-Die Generierung der FIFO-Pipes geschieht über die Methode  \textit{os.mkfifo()}, dabei wird vorher überprüft, ob eine solche Pipe schon existiert, mit der Methode  \textit{os.path.exists()}. 
+Die Generierung der FIFO-Pipes geschieht über die Methode  \textit{os.mkfifo()}, dabei wird vorher überprüft, ob solch eine Pipe schon existiert, mit der Methode  \textit{os.path.exists()}. 
 Man muss beachten, dass  \textit{os.mkfifo()} nur auf POSIX-kompatiblen Systemen verfügbar ist, zum Beispiel Linux und macOS.
 Zum Löschen der FIFO-Pipes benutzt man\textit{os.unlink()}.
 
