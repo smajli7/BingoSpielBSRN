@@ -299,9 +299,6 @@ def schreiben(name, pi6, paths):
         s = f"{name}".encode()  # Verwandelt String in Byte UTF-8
         os.write(fifo, s)  # Pipe-Gewinner-Nachricht schreiben
         os.close(fifo)  # Pipe schließen
-    log_event(pi6, f"Gewinner: {name}")
-    log_event(pi6, "Ende des Spiels")
-    log_files[pi6].close()
     os.unlink(pi6)  # Löschen der Pipes
     sys.exit()  # System beenden
 
