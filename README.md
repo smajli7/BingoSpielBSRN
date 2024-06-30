@@ -37,7 +37,7 @@ python3 main.py
 - **Mit Freunden spielen**: Das Spiel hat die Funktion, dass man die Anzahl der Mitspieler selbst bestimmen kann.
 - **Gewinner und Markieren der Wörter**: Man kann die Wörter, die man markiert hat, auch wieder rückgängig machen, wenn man das Wort erneut eingibt. Am Ende eines Spiels werden alle Mitspieler mit einem schönen Victory Screen informiert, wer gewonnen hat.
 
-##  <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/054ed7d5-fb90-4393-b1bd-36c7073f6369" alt="contacts_48dp_FILL0_wght400_GRAD0_opsz48" width="5%"> Kontakt
+##  <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/4a9e8e8f-d050-4882-8835-e2a7a1d4f383" alt="contacts_48dp_FILL0_wght400_GRAD0_opsz48" width="5%"> Kontakt
 
 
 Wenn Sie Fragen haben, dann können Sie jederzeit an die gemeinsame E-Mail des Teams.
