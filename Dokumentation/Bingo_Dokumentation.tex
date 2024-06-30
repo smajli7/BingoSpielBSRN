@@ -341,7 +341,7 @@ def log_event(event):
     log_files[0].write(f"{timestamp} {event}\n")
 \end{lstlisting}
 
-\subsection{Kommunikation über Pipes}
+\subsection{Kommunikation über Pipes und Erstellung der Pipes}
 
 Das Spiel nutzt Pipes zur Interprozesskommunikation, um Daten zwischen den einzelnen Spielerprozessen auszutauschen. Pipes ermöglichen eine effiziente und direkte Datenübertragung, die für das synchrone Spiel unerlässlich ist. Die Funktionen \textit{send()} und \textit{empfang()} verwalten das Senden und Empfangen von Nachrichten. \textit{sendfile()} und \textit{empfangfile()} übernehmen die Übertragung und den Empfang von Spieldaten.
 
@@ -355,6 +355,21 @@ def send(pipe, pipm):
     os.close(fifo)  # Pipe schließen
 \end{lstlisting}
 
+
+Die Generierung der FIFO-Pipes geschieht über die Methode  \textit{os.mkfifo()}, dabei wird vorher überprüft, ob eine solche Pipe schon existiert, mit der Methode  \textit{os.path.exists()}. 
+Man muss beachten, dass  \textit{os.mkfifo()} nur auf POSIX-kompatiblen Systemen verfügbar ist, zum Beispiel Linux und macOS.
+Zum Löschen der FIFO-Pipes benutzt man\textit{os.unlink()}.
+
+\begin{lstlisting}[caption=FIFO-Pipe Erstellen]
+def namedpipe(piname):  # Methode zur Generierung der FIFO-Pipes
+    if not os.path.exists(piname):  # Prüft, ob eine solche Pipe schon existiert
+        os.mkfifo(piname)  # Generiert die Pipe
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption=FIFO-Pipe Entfernen]
+  os.unlink(piname)  # Löschen der Pipes
+\end{lstlisting}
 
 \section{Schlusswort}
 
