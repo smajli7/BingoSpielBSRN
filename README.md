@@ -28,11 +28,7 @@ Um das Spiel zu starten wird WSL[^4] benötigt. Anschließend wir das Spiel durc
 cd *yourDirectory*
 python3 main.py
 ```
-## Funktionen ![manufacturing_48dp_FILL0_wght400_GRAD0_opsz48](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/eddbe820-bed9-4d1a-a8ba-66a2a23c5e27)
-
-
-
-
+<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/eddbe820-bed9-4d1a-a8ba-66a2a23c5e27" alt="manufacturing_48dp_FILL0_wght400_GRAD0_opsz48" width="20%"> ##Funktionen
 
 
 
