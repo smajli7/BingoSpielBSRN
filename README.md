@@ -12,7 +12,7 @@ Die Dateien **main.py** und **buzzwords.txt** welche man unter dem Repository fi
 ```
 https://github.com/smajli7/BingoSpielBSRN.git
 ```
-Bitte installieren Sie vor dem Start des Spiels das erforderlichen Module mit dem Befehlen:
+Bitte installieren Sie vor dem Start des Spiels das erforderlichen Module mit den Befehlen:
 ```
 python -m pip install rich
 python -m pip install prompt_toolkit
@@ -21,7 +21,7 @@ python -m pip install prompt_toolkit
 
 ## <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/23b9fa2b-d051-4853-8ca6-3c906cc58c17" alt="start_48dp_FILL0_wght400_GRAD0_opsz48" width="5%"> Verwendung 
 
-Um das Spiel zu starten wird WSL[^4] benötigt. Anschließend wir das Spiel durch ein Ubuntu-Terminal gestartet:
+Um das Spiel zu starten wird WSL[^1] benötigt. Anschließend wir das Spiel durch ein Ubuntu-Terminal gestartet:
 
 ```
 cd *yourDirectory*
@@ -53,7 +53,7 @@ https://github.com/smajli7/BingoSpielBSRN/assets/109920023/24cdbfd8-97bb-4c46-b8
 
 ## Quellenverzeichnis
 
-[^4]: https://learn.microsoft.com/en-us/windows/wsl/install
+[^1]: https://learn.microsoft.com/en-us/windows/wsl/install
 
 
 
