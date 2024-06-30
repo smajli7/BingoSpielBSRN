@@ -19,8 +19,7 @@ python -m pip install prompt_toolkit
 ```
 
 
-## <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/f609d166-b20a-47c2-86e4-bf41eaa900eb" alt="start_48dp_FILL0_wght400_GRAD0_opsz48" width="5%">
- Verwendung 
+## <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/f609d166-b20a-47c2-86e4-bf41eaa900eb" alt="start_48dp_FILL0_wght400_GRAD0_opsz48" width="5%"> Verwendung 
 
 Um das Spiel zu starten wird WSL[^4] benötigt. Anschließend wir das Spiel durch ein Ubuntu-Terminal gestartet
 
