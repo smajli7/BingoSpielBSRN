@@ -19,8 +19,8 @@ python -m pip install prompt_toolkit
 ```
 
 
-## Verwendung
-<img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/03a7ed2d-aa7f-47cf-ac5a-94539169892f" alt="pycharmIcon" width="10%"> [^1]
+## <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/f609d166-b20a-47c2-86e4-bf41eaa900eb" alt="start_48dp_FILL0_wght400_GRAD0_opsz48" width="5%">
+ Verwendung 
 
 Um das Spiel zu starten wird WSL[^4] benötigt. Anschließend wir das Spiel durch ein Ubuntu-Terminal gestartet
 
@@ -28,11 +28,10 @@ Um das Spiel zu starten wird WSL[^4] benötigt. Anschließend wir das Spiel durc
 cd *yourDirectory*
 python3 main.py
 ```
-![contacts_48dp_FILL0_wght400_GRAD0_opsz48](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/054ed7d5-fb90-4393-b1bd-36c7073f6369)
+
+
 
 ## <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/eddbe820-bed9-4d1a-a8ba-66a2a23c5e27" alt="manufacturing_48dp_FILL0_wght400_GRAD0_opsz48" width="5%">  Funktionen 
-
-
 
 
 
@@ -56,8 +55,6 @@ https://github.com/smajli7/BingoSpielBSRN/assets/109920023/24cdbfd8-97bb-4c46-b8
 
 ## Quellenverzeichnis
 
-[^1]: https://miro.medium.com/v2/resize:fit:1200/1*6Dhu1H4t028lOGbaZuyRCw.png
-[^2]: https://static-00.iconduck.com/assets.00/function-icon-2048x1463-lnlz684g.png
 [^4]: https://learn.microsoft.com/en-us/windows/wsl/install
 
 
