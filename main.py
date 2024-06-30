@@ -93,16 +93,19 @@ def get_dimensiony():  # Funktion, die die Zeilenanzahl abfragt
         except ValueError:
             console.print("Fehler: Die Eingabe muss eine ganze Zahl sein.", style="bold red")
 
-def create_log_file(pid):
+def create_log_file(pid, player_name):
     timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
     filename = f"{timestamp}-bingo-Spieler{pid}.txt"
-    log_files[0] = open(filename, 'w')
-    log_files[0].write(f"{timestamp} Start des Spiels\n")
-    return log_files[0]
+    log_files[pid] = open(filename, 'w')
+    log_files[pid].write(f"Spieler: {player_name}\n")
+    log_files[pid].write(f"{timestamp} Start des Spiels\n")
+    return log_files[pid]
 
-def log_event(event):
+
+
+def log_event(pid, event):
     timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    log_files[0].write(f"{timestamp} {event}\n")
+    log_files[pid].write(f"{timestamp} {event}\n")
 
 def generate_bingo_cards(playernamelist, xsize, ysize):  # Funktion, die die Bingokarten generiert
     matrixlist = []  # Liste der Bingokarten
@@ -170,13 +173,13 @@ def check_winner(matrix, marked_words):  # Funktion, die überprüft, ob ein Spi
 
 def mark_word(playernamelist, matrixlist, pid, idlist):  # Funktion, die die Wörter markiert
     marked_words = set()  # Set für die markierten Wörter
-    if len(idlist) > 0:  # Prüft nur, wenn mehrere Spieler drin sind
-        lesen(pid)  # Lesen, ob jemand gewonnen hat
     while True:  # Schleife, die die Wörter markiert
         display_bingo_cards(playernamelist, matrixlist, marked_words)  # Anzeige der Bingokarten
         word_to_mark = session.prompt(
             "Geben Sie das Wort ein, das Sie markieren oder unmarkieren möchten (oder 'exit' zum Beenden): ")  # Eingabe des zu markierenden Worts
         if word_to_mark.lower() == 'exit':  # wenn exit dann Spielende
+            log_event(pid, "Ende des Spiels")
+            log_files[pid].close()
             break  # Beendet die Schleife
         found = False  # Variable, die angibt, ob das Wort gefunden wurde
         for matrix in matrixlist:  # Schleife, die die Bingokarten durchgeht
@@ -184,8 +187,10 @@ def mark_word(playernamelist, matrixlist, pid, idlist):  # Funktion, die die Wö
                 if word_to_mark in row:  # Überprüfung, ob das Wort in der Zeile enthalten ist
                     if word_to_mark in marked_words:  # Überprüfung, ob das Wort bereits markiert ist
                         marked_words.remove(word_to_mark)  # Entfernt das Wort aus den markierten Wörtern
+                        log_event(pid, f"Wort demarkiert: {word_to_mark}")
                     else:  # Wenn das Wort nicht markiert ist
                         marked_words.add(word_to_mark)  # Fügt das Wort zu den markierten Wörtern hinzu
+                        log_event(pid, f"Wort markiert: {word_to_mark}")
                     found = True  # Setzt die Variable auf True
                     break  # Beendet die Schleife
             if found:  # Wenn das Wort gefunden wurde
@@ -197,15 +202,18 @@ def mark_word(playernamelist, matrixlist, pid, idlist):  # Funktion, die die Wö
             if check_winner(matrix, marked_words):  # Überprüfung, ob ein Spieler gewonnen hat
                 display_bingo_cards(playernamelist, matrixlist, marked_words)  # Anzeige
                 console.clear()
-                log_event("Sieg")  # Loggen des Siegs
-                log_event("Ende des Spiels")  # Loggen des Spielendes
-                log_files[0].close()
-                create_victory_screen(playernamelist[0])  # Sieges-Screen anzeigen
+                log_event(pid, f"Gewinner: {playernamelist[i]}")
+                log_event(pid, "Ende des Spiels")  # Loggen des Spielendes
+                log_files[pid].close()
+                create_victory_screen(playernamelist[i])  # Sieges-Screen anzeigen
                 if len(idlist) == 0:  # Unlinken, wenn man selbst spielte
                     os.unlink(pid)
                     sys.exit()
                 if len(idlist) > 0:  # Schaut, ob mehrere Spieler drin sind
-                    schreiben(playernamelist[0], pid, idlist)  # Gegnern mitteilen, dass man gewonnen hat
+                    schreiben(playernamelist[i], pid, idlist)  # Gegnern mitteilen, dass man gewonnen hat
+
+
+
 
 def create_victory_screen(text):  # Funktion zum Erstellen des Sieges-Screens
     background_colors = ['green', 'blue', 'magenta', 'yellow', 'cyan']  # Hintergrundfarben
@@ -272,14 +280,16 @@ def lesen(pi4):
         daten = os.read(fifo, 128)  # Liest aus der Pipe im Bereich 128 Byte, kann auch mehr sein, desto größer die Nachricht ist
         if daten:  # Wenn Daten vorhanden sind
             ergebnis = daten.decode().strip()  # Verwandelt Byte UTF-8 in String ohne Leerzeichen
-            log_event("Ende des Spiels")
-            log_files[0].close()
+            log_event(pi4, f"Gewinner: {ergebnis}")  # Gewinner loggen
+            log_event(pi4, "Ende des Spiels")  # Spielende loggen
+            log_files[pi4].close()
             create_victory_screen(ergebnis)  # Sieger-Screen anzeigen
             os.unlink(pi4)  # Löschen der Pipes
             os.close(fifo)  # Pipe schließen
             sys.exit()  # System beenden
     except IOError as e:
         print(e)
+
 
 def schreiben(name, pi6, paths):
     for i in paths:  # Geht durch jede gegnerische Pipe
@@ -291,6 +301,7 @@ def schreiben(name, pi6, paths):
         os.close(fifo)  # Pipe schließen
     os.unlink(pi6)  # Löschen der Pipes
     sys.exit()  # System beenden
+
 
 def namedpipe(piname):  # Methode zur Generierung der FIFO-Pipes
     if not os.path.exists(piname):  # Prüft, ob eine solche Pipe schon existiert
@@ -310,7 +321,7 @@ def start_game():  # Funktion, die das Spiel startet
                 playernamelist = get_player_names(1)  # Spielerliste
                 xsize = get_dimensionx()  # x
                 ysize = get_dimensiony()  # y
-                create_log_file(pids)
+                create_log_file(pids, playernamelist[0])
                 matrixlist = generate_bingo_cards(playernamelist, xsize, ysize)  # Spielfeld wird generiert
                 spieler_ids = []
                 if playercount > 1:
@@ -327,7 +338,7 @@ def start_game():  # Funktion, die das Spiel startet
                 initialize_file(filename[0])  # Benutzt die empfangenen Daten zur Generierung des Spiels
                 playernamelist = get_player_names(1)  # Spielernamen erfassen
                 matrixlist = generate_bingo_cards(playernamelist, int(filename[1]), int(filename[2]))  # Spielfeld wird generiert
-                create_log_file(pids)
+                create_log_file(pids, playernamelist[0])
                 del filename[:3]  # Löscht die ersten 3 Positionen
                 mark_word(playernamelist, matrixlist, pids, filename)  # Funktion zur Markierung von Wörtern
                 break
@@ -341,6 +352,9 @@ def start_game():  # Funktion, die das Spiel startet
         os.unlink(pids)
     except IOError:
         os.unlink(pids)
+
+
+
 
 if __name__ == "__main__":  # Wird ausgeführt, wenn das Skript direkt ausgeführt wird
     start_game()  # Ruft die Funktion start_game auf
