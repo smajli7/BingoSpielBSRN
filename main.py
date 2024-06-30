@@ -170,6 +170,8 @@ def check_winner(matrix, marked_words):  # Funktion, die überprüft, ob ein Spi
 
 def mark_word(playernamelist, matrixlist, pid, idlist):  # Funktion, die die Wörter markiert
     marked_words = set()  # Set für die markierten Wörter
+    if len(idlist) > 0:  # Prüft nur, wenn mehrere Spieler drin sind
+        lesen(pid)  # Lesen, ob jemand gewonnen hat
     while True:  # Schleife, die die Wörter markiert
         display_bingo_cards(playernamelist, matrixlist, marked_words)  # Anzeige der Bingokarten
         word_to_mark = session.prompt(
