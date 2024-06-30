@@ -162,7 +162,7 @@ Damit das Spiel funktionsfähig ist, benötigt man zusätzliche Installationen u
 
 \section{Bibliotheken und Imports}
 
-Um unnötige Imports zu vermeiden, nutzen wir als externe Bibliotheken 'rich' und 'prompt-toolkit'. Eine ausführliche Erklärung aller Imports:
+Erklärung aller Imports:
 
 \begin{itemize}
     \item \texttt{os}: Bietet eine Schnittstelle zu Betriebssystemfunktionen wie das Arbeiten mit Dateisystemen und Umgebungsvariablen.
@@ -270,7 +270,7 @@ Bevor die Karten generiert werden, muss der Spieler zunächst die Feldgröße be
     \label{fig:ssGame1}
 \end{figure}
 
-Nachdem alle Spieler mit dem Spielcode beigetreten sind, beginnt das Spiel, indem die Funktion \textit{generate\_bingo\_cards()} die Karten generiert. Der vollständige Code mit Kommentaren befindet sich im \textit{CA 1.7} , weswegen auf eine ausführliche Analyse hier verzichtet und stattdessen auf Probleme und Lösungen eingegangen wird.
+Nachdem alle Spieler mit dem Spielcode beigetreten sind, beginnt das Spiel, indem die Funktion \textit{generate\_bingo\_cards()} die Karten generiert. Der vollständige Code mit Kommentaren befindet sich im \textit{CA 1.9} , weswegen auf eine ausführliche Analyse hier verzichtet und stattdessen auf Probleme und Lösungen eingegangen wird.
 
 \begin{enumerate}
 \item Zu wenige Bingokarten in der Wörterliste führten zum Absturz des Spiels.
@@ -356,7 +356,7 @@ def send(pipe, pipm):
 \end{lstlisting}
 
 
-Die Generierung der FIFO-Pipes geschieht über die Methode  \textit{os.mkfifo()}, dabei wird vorher überprüft, ob solch eine Pipe schon existiert, mit der Methode  \textit{os.path.exists()}. 
+Die Generierung der FIFO-Pipes geschieht über die Methode  \textit{os.mkfifo()}, dabei wird vorher überprüft, ob eine solche Pipe schon existiert, mit der Methode  \textit{os.path.exists()}. 
 Man muss beachten, dass  \textit{os.mkfifo()} nur auf POSIX-kompatiblen Systemen verfügbar ist, zum Beispiel Linux und macOS.
 Zum Löschen der FIFO-Pipes benutzt man\textit{os.unlink()}.
 
@@ -382,6 +382,8 @@ Die Implementierung der Logdateien durch \textit{create\_log\_file()} und \texti
 Ein zentraler Aspekt des Spiels ist die Interprozesskommunikation mittels Pipes. Funktionen wie \textit{send()} und \textit{empfang()} gewährleisten einen reibungslosen Datenaustausch zwischen den Spielerprozessen. Trotz der robusten Implementierung gibt es Potenzial für weitere Optimierungen, insbesondere in Bezug auf die Effizienz und die Geschwindigkeit der Kommunikation. Die aktuelle Implementierung kann bei größeren Spielerzahlen zu Verzögerungen führen, weshalb ein zukünftiger Ansatz die Nutzung von Message Queues oder Sockets in Betracht ziehen könnte.
 
 Zusammenfassend lässt sich sagen, dass das Projekt erfolgreich die Ziele der Portfolioprüfung erfüllt hat. Die entwickelten Funktionen arbeiten zuverlässig und bieten eine solide Basis für zukünftige Erweiterungen und Verbesserungen. Zu den möglichen Erweiterungen gehören die Implementierung einer grafischen Benutzeroberfläche, die Integration von Netzwerkfähigkeit für das Spielen über verschiedene Geräte hinweg und die Optimierung der Interprozesskommunikation. Diese Verbesserungen könnten die Benutzerfreundlichkeit weiter erhöhen und das Spiel auf ein neues Niveau heben.
+
+Das gesamte Projekt findet man unter folgendem link: \url{https://github.com/smajli7/BingoSpielBSRN}
 
 \section{Anhang}
 
