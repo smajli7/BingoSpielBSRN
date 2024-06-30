@@ -28,6 +28,7 @@ Um das Spiel zu starten wird WSL[^4] benötigt. Anschließend wir das Spiel durc
 cd *yourDirectory*
 python3 main.py
 ```
+![contacts_48dp_FILL0_wght400_GRAD0_opsz48](https://github.com/smajli7/BingoSpielBSRN/assets/109920023/054ed7d5-fb90-4393-b1bd-36c7073f6369)
 
 ## <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/eddbe820-bed9-4d1a-a8ba-66a2a23c5e27" alt="manufacturing_48dp_FILL0_wght400_GRAD0_opsz48" width="5%">  Funktionen 
 
@@ -39,8 +40,8 @@ python3 main.py
 - **Mit Freunden spielen**: Das Spiel hat die Funktion, dass man die Anzahl der Mitspieler selbst bestimmen kann.
 - **Victory Screen und Markieren der Wörter**: Man kann die Wörter, die man markiert hat, auch wieder rückgängig machen, wenn man das Wort erneut eingibt. Am Ende eines Spiels werden alle Mitspieler mit einem schönen Victory Screen informiert, wer gewonnen hat.
 
-## Kontakt
-<img src="https://github.com/mufasaQ/bingo/assets/168477996/005323dd-22e6-4b8e-9c9e-2953fbc2880f" alt="kontakt" width="10%"> 
+##  <img src="https://github.com/smajli7/BingoSpielBSRN/assets/109920023/054ed7d5-fb90-4393-b1bd-36c7073f6369" alt="contacts_48dp_FILL0_wght400_GRAD0_opsz48" width="5%"> Kontakt
+
 
 Wenn Sie Fragen haben, dann können Sie jederzeit an die gemeinsame E-Mail des Teams.
 
